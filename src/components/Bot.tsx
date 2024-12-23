@@ -1471,6 +1471,11 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                         }}
                         dateTimeToggle={props.dateTimeToggle}
                         renderHTML={props.renderHTML}
+                        //Khuetech add props for handle click and submit
+                        hanleClickSendMessage={(inputMessage) => {
+                          //setUserInput(inputMessage);
+                          handleSubmit(inputMessage);
+                        }}
                       />
                     )}
                     {message.type === 'leadCaptureMessage' && leadsConfig()?.status && !getLocalStorageChatflow(props.chatflowid)?.lead && (

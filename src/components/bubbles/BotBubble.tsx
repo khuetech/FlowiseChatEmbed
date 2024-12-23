@@ -31,6 +31,7 @@ type Props = {
   renderHTML?: boolean;
   handleActionClick: (label: string, action: IAction | undefined | null) => void;
   handleSourceDocumentsClick: (src: any) => void;
+  hanleClickSendMessage: (label: string) => void; //Khuetech: define function for props
 };
 
 const defaultBackgroundColor = '#f7f8ff';
@@ -205,6 +206,23 @@ export const BotBubble = (props: Props) => {
       botMessageEl.querySelectorAll('a').forEach((link) => {
         link.target = '_blank';
       });
+
+      // Khuetech: custom button in message can click
+      botMessageEl.querySelectorAll('button').forEach((btn) => {
+        btn.onclick = function() {
+          props.hanleClickSendMessage(btn.innerText);
+        };
+        btn.style.backgroundColor = '#527aa5';  // Màu nền
+        btn.style.color = 'white';           // Màu chữ
+        btn.style.padding = '0px 5px';     // Padding
+        btn.style.borderRadius = '5px';      // Bo tròn viền
+        btn.style.fontSize = '16px';         // Font size
+        btn.style.cursor =  'pointer !important';
+        btn.style.boxShadow = '1px 1px 3px 1px #9bb8c3';
+        btn.style.marginBottom = '5px';
+        btn.style.marginRight = '5px';
+      });
+
       if (props.message.rating) {
         setRating(props.message.rating);
         if (props.message.rating === 'THUMBS_UP') {
