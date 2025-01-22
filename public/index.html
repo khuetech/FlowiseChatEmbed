@@ -13,13 +13,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flowise Chatbot Widget</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
 </head>
 
 <body>
     <div id="root"></div>
     <script type="module">
         import Chatbot from './web.js'
-        
+
         // Example initialization:
         // If your .env contains:
         // agent1=xyz789-uvw456,https://example.com
@@ -28,23 +32,34 @@
         //
         // Then use the environment variable name as chatflowid:
         Chatbot.init({
-            chatflowid: "1558e361-6ed8-45be-882d-245b100f0c6b",
-            apiHost: "http://18.144.156.78:9000",
+            chatflowid: "f0a70fae-157a-4a49-a28d-402a0a463a4b",
+            apiHost: "https://flowise.anhship.com",
             chatflowConfig: {
                 /* Chatflow Config */
             },
             observersConfig: {
                 /* Observers Config */
+                observeUserInput: (userInput) => {
+                    console.log({ userInput });
+                },
+                // The bot message stack has changed
+                observeMessages: (messages) => {
+                    console.log({ messages });
+                },
+                // The bot loading signal changed
+                observeLoading: (loading) => {
+                    console.log({ loading });
+                },
             },
             theme: {
                 button: {
                     backgroundColor: '#3B81F6',
-                    right: 20,
-                    bottom: 20,
+                    right: 10,
+                    bottom: 60,
                     size: 48,
                     dragAndDrop: true,
                     iconColor: 'white',
-                    customIconSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+                    customIconSrc: 'https://booking.anhship.com/artnest/wp-content/uploads/chatbot/icon-support.svg',
                     autoWindowOpen: {
                         autoOpen: true,
                         openDelay: 2,
@@ -53,7 +68,7 @@
                 },
                 tooltip: {
                     showTooltip: true,
-                    tooltipMessage: 'Hi There 👋!',
+                    tooltipMessage: '👋 Chat AI',
                     tooltipBackgroundColor: 'black',
                     tooltipTextColor: 'white',
                     tooltipFontSize: 16
@@ -72,20 +87,21 @@
                 chatWindow: {
                     showTitle: true,
                     showAgentMessages: true,
-                    title: 'Flowise Bot',
-                    titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
-                    welcomeMessage: 'Hello! This is custom welcome message',
+                    title: 'Art Nest Hotel - Support 24/7',
+                    titleAvatarSrc: 'https://booking.anhship.com/artnest/wp-content/uploads/chatbot/icon-support.svg',
+                    welcomeMessage: 'Hello! I am Ktech, receptionist at Art Nest Hotel Nha Trang. May I help you?',
                     errorMessage: 'This is a custom error message',
                     backgroundColor: '#ffffff',
                     backgroundImage: 'enter image path or link',
                     height: 700,
-                    width: 400,
-                    fontSize: 16,
-                    starterPrompts: [
-                        "What is a bot?",
-                        "Who are you?"
-                    ],
-                    starterPromptFontSize: 15,
+                    width: 450,
+                    fontSize: 13,
+                    //                 starterPrompts: [
+                    //                     "Booking",
+                    // 					"About Art Nest",
+                    //                     "I have a question"
+                    //                 ],
+                    starterPromptFontSize: 12,
                     clearChatOnReload: false,
                     sourceDocsTitle: 'Sources:',
                     renderHTML: true,
@@ -93,13 +109,13 @@
                         backgroundColor: '#f7f8ff',
                         textColor: '#303235',
                         showAvatar: true,
-                        avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png'
+                        avatarSrc: 'https://booking.anhship.com/artnest/wp-content/uploads/chatbot/icon-bot.svg'
                     },
                     userMessage: {
                         backgroundColor: '#3B81F6',
                         textColor: '#ffffff',
                         showAvatar: true,
-                        avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png'
+                        avatarSrc: 'https://booking.anhship.com/artnest/wp-content/uploads/chatbot/icon-customer.svg'
                     },
                     textInput: {
                         placeholder: 'Type your question',
@@ -110,9 +126,9 @@
                         maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 50 characters.',
                         autoFocus: true,
                         sendMessageSound: true,
-                        sendSoundLocation: 'send_message.mp3',
+                        sendSoundLocation: 'https://booking.anhship.com/artnest/wp-content/uploads/chatbot/send-message.mp3',
                         receiveMessageSound: true,
-                        receiveSoundLocation: 'receive_message.mp3'
+                        receiveSoundLocation: 'https://booking.anhship.com/artnest/wp-content/uploads/chatbot/send-message.mp3'
                     },
                     feedback: {
                         color: '#303235'
@@ -125,7 +141,7 @@
                         textColor: '#303235',
                         text: 'Powered by',
                         company: 'Sitloo',
-                        companyLink: 'https://flowiseai.com'
+                        companyLink: 'https://sitloo.com'
                     }
                 }
             }

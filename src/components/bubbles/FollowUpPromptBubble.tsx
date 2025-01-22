@@ -12,7 +12,7 @@ export const FollowUpPromptBubble = (props: Props) => (
       onClick={() => props.onPromptClick?.()}
     >
       <span
-        class="px-2 py-1 whitespace-pre-wrap max-w-full chatbot-host-bubble border"
+        class="px-2 py-0 whitespace-pre-wrap max-w-full chatbot-host-bubble border"
         data-testid="host-bubble"
         style={{
           width: 'max-content',

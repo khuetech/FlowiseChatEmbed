@@ -931,6 +931,14 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
           chatContainer?.scrollTo(0, chatContainer.scrollHeight);
         }, 400);
       }
+
+      // Khuetech: dùng để kiểm tra người dùng đã chat lần nào chưa
+      if (messages().length > 1) {
+        setCookie('chatbotUsed','true', 365);
+      }else{
+        setCookie('chatbotUsed','false', 365);
+      }
+      
     }
   });
 
