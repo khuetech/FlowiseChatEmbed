@@ -934,11 +934,10 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
       // Khuetech: dùng để kiểm tra người dùng đã chat lần nào chưa
       if (messages().length > 1) {
-        setCookie('chatbotUsed','true', 365);
-      }else{
-        setCookie('chatbotUsed','false', 365);
+        setCookie('chatbotUsed', 'true', 365);
+      } else {
+        setCookie('chatbotUsed', 'false', 365);
       }
-      
     }
   });
 

@@ -1,5 +1,5 @@
 import { createSignal, createEffect, Show } from 'solid-js';
-import { isNotDefined, getBubbleButtonSize, } from '@/utils/index';
+import { isNotDefined, getBubbleButtonSize } from '@/utils/index';
 import { getCookie } from '@/utils';
 import { ButtonTheme } from '../types';
 
@@ -80,8 +80,8 @@ export const BubbleButton = (props: Props) => {
         if (!props.isBotOpened && !userInteracted()) {
           // Khuetech: dùng để kiểm tra người dùng đã chat lần nào chưa thì auto mở popup
           //props.toggleBot();
-          
-          console.log("chatbotUsed: " + getCookie('chatbotUsed'));
+
+          console.log('chatbotUsed: ' + getCookie('chatbotUsed'));
           if (getCookie('chatbotUsed') != 'true') {
             props.toggleBot();
           }
